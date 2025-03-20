@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# Media Upload Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend for a media upload application. It allows users to authenticate using Google OAuth, upload media files (images/videos), and view their uploaded files. The frontend is built using *React.js* and integrates with a Node.js backend for authentication and file management.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- *Google Authentication*: Users can log in using their Google accounts.
+- *Media Upload*: Users can upload media files (images/videos) to AWS S3.
+- *Media Management*: Users can view their uploaded media files in an organized grid.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- *Frontend*: React.js
+- *UI Library*: Material-UI (MUI)
+- *Animations*: Framer Motion
+- *State Management*: React Context (optional)
+- *Hosting*: Netlify
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before running the frontend, ensure you have the following installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Git](https://git-scm.com/) (for cloning the repository)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Clone the Repository
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+git clone https://github.com/your-username/media-upload-frontend.git
+cd media-upload-frontend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### 2. Install Dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm install
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Set Up Environment Variables
 
-### Analyzing the Bundle Size
+Create a .env file in the root directory and add the following variables:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+plaintext
+REACT_APP_BACKEND_URL=https://your-render-backend-url.onrender.com
+REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 4. Run the Frontend
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+npm start
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The frontend will start on http://localhost:3000.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Structure
+
+
+media-upload-frontend/
+├── public/                  # Static assets
+├── src/                     # Source code
+│   ├── components/          # Reusable components
+│   │   ├── GoogleLoginButton.js
+│   │   ├── MediaUpload.js
+│   │   ├── MediaList.js
+│   │   └── MediaViewer.js
+│   ├── App.js               # Main application component
+│   ├── index.js             # Entry point
+│   └── App.css              # Global styles
+├── .gitignore               # Files to ignore in Git
+├── package.json             # Project dependencies
+└── README.md                # Project documentation
+
+
+---
+
+## Key Components
+
+### 1. *GoogleLoginButton.js*
+Handles Google OAuth login using @react-oauth/google.
+
+### 2. *MediaUpload.js*
+Allows users to upload media files and preview them before uploading.
+
+### 3. *MediaList.js*
+Displays a grid of uploaded media files with animations.
+
+### 4. *MediaViewer.js*
+Opens a modal to view media files in a larger screen with navigation options.
+
+---
+
+## Deployment
+
+### Deploy to Netlify
+
+1. Go to [Netlify Dashboard](https://app.netlify.com/).
+2. Click *New site from Git*.
+3. Connect your GitHub repository.
+4. Set the following:
+   - *Build Command*: npm run build
+   - *Publish Directory*: build
+5. Add the environment variables from your .env file.
+6. Click *Deploy site*.
+
+---
+
+## Environment Variables
+
+| Variable                     | Description                          |
+|------------------------------|--------------------------------------|
+| REACT_APP_BACKEND_URL      | URL of the backend API               |
+| REACT_APP_GOOGLE_CLIENT_ID | Google OAuth client ID               |
+
+---
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch:
+   bash
+   git checkout -b feature/your-feature-name
+   
+3. Commit your changes:
+   bash
+   git commit -m "Add your feature"
+   
+4. Push to the branch:
+   bash
+   git push origin feature/your-feature-name
+   
+5. Open a pull request.
+
+---
+
+## Contact
+
+For questions or feedback, reach out to [Chirag Vij](mailto:chiragvij20102002@gmail.com).
+
+```
+
+---
