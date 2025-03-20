@@ -27,7 +27,7 @@ const MediaUpload = ({ onUploadSuccess }) => {
 
     const token = localStorage.getItem("token");
     try {
-      const { data } = await axios.post(
+    await axios.post(
         "https://media-upload-backend.onrender.com/api/media/upload",
         formData,
         {
