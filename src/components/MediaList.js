@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Grid, Paper, Button, Typography, Checkbox } from "@mui/material";
+import { Grid, Paper, Button, Checkbox } from "@mui/material";
 import { motion } from "framer-motion";
 import MediaViewer from "./MediaViewer";
 
