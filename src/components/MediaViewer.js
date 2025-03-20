@@ -57,4 +57,4 @@ const MediaViewer = ({ media, currentIndex, onClose, onNext, onPrevious }) => {
   );
 };
 
-export default MediaViewer;
+export default MediaViewer;

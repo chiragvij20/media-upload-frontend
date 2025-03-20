@@ -6,7 +6,7 @@ const GoogleLoginButton = ({ setUser }) => {
   const handleLogin = async (credentialResponse) => {
     try {
       const { data } = await axios.post(
-        "https://media-upload-backend.onrender.com/api/auth/google",
+        process.env.REACT_APP_BACKEND_URL + "/api/auth/google",
         {
           token: credentialResponse.credential,
         }
@@ -19,7 +19,7 @@ const GoogleLoginButton = ({ setUser }) => {
   };
 
   return (
-    <GoogleOAuthProvider clientId="195028132072-mj5bmfgd9r3qd9frg5dlinfqbu8t4h30.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId=`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`>
       <GoogleLogin
         onSuccess={handleLogin}
         onError={() => console.log("Login Failed")}

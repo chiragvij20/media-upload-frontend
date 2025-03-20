@@ -12,7 +12,7 @@ function App() {
   const handleLogin = async (credentialResponse) => {
     try {
       const { data } = await axios.post(
-        "https://media-upload-backend.onrender.com/api/auth/google",
+        process.env.REACT_APP_BACKEND_URL + "/api/auth/google",
         {
           token: credentialResponse.credential,
         }
@@ -100,4 +100,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

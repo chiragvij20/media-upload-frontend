@@ -27,8 +27,8 @@ const MediaUpload = ({ onUploadSuccess }) => {
 
     const token = localStorage.getItem("token");
     try {
-    await axios.post(
-        "https://media-upload-backend.onrender.com/api/media/upload",
+      await axios.post(
+        process.env.REACT_APP_BACKEND_URL + "/api/media/upload",
         formData,
         {
           headers: {
@@ -37,6 +37,7 @@ const MediaUpload = ({ onUploadSuccess }) => {
           },
         }
       );
+
       alert("File uploaded successfully!");
       setFile(null);
       setPreview(null);
@@ -157,4 +158,4 @@ const MediaUpload = ({ onUploadSuccess }) => {
   );
 };
 
-export default MediaUpload;
+export default MediaUpload;

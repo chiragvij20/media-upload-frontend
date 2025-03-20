@@ -9,6 +9,8 @@ import Avatar from "@mui/material/Avatar";
 const Dashboard = ({ user, setUser }) => {
   const [refreshMedia, setRefreshMedia] = useState(false);
 
+  console.log("User picture URL:", user.picture);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     setUser(null);
@@ -51,8 +53,10 @@ const Dashboard = ({ user, setUser }) => {
               gap: 1,
             }}
           >
-            <Avatar src={user.picture} sx={{ width: 48, height: 48 }} />
-            Welcome, {user.name}
+            <Avatar src={user.picture} sx={{ width: 70, height: 70 }} />
+            Welcome
+            <br />
+            {user.name}
           </Typography>
           <Button
             variant="contained"
@@ -97,4 +101,4 @@ const Dashboard = ({ user, setUser }) => {
   );
 };
 
-export default Dashboard;
+export default Dashboard;
